@@ -8,7 +8,7 @@ export const environment = {
     summary: 'https://api.covid19api.com/summary',
     timeSeries: 'https://data.covid19india.org/v4/min/timeseries.min.json',
     current: 'https://data.covid19india.org/v4/min/data.min.json',
-    all: 'https://apps.who.int/api/',
+    all: 'https://worldhealthorg.shinyapps.io/covid/__sockjs__/n=unGwfEbbwSf87alyVF/t=7f8a6f77ef5fa5a5dc08ee55abd170a6/w=261a5b02/s=0/337/dit0cfl5/xhr_send?t=1636271680433',
   },
 };
 

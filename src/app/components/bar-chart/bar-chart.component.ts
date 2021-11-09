@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -7,37 +7,52 @@ Chart.register(...registerables);
   templateUrl: './bar-chart.component.html',
 })
 export class BarChartComponent implements OnInit, AfterViewInit {
+  @Input() labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+  ];
+  @Input() data = [30, 78, 56, 34, 100, 45, 13];
+  @Input() data2 = [30, 78, 56, 34, 100, 45, 13];
+  @Input() data3 = [30, 78, 56, 34, 100, 45, 13];
+  @Input() data4 = [30, 78, 56, 34, 100, 45, 13];
+
   constructor() {}
 
   ngOnInit(): void {}
   ngAfterViewInit(): void {
+    console.log(this.data);
     const config = {
       type: 'bar',
       data: {
-        labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-        ],
+        labels: this.labels,
         datasets: [
           {
-            label: new Date().getFullYear(),
-            backgroundColor: '#ed64a6',
-            borderColor: '#ed64a6',
-            data: [30, 78, 56, 34, 100, 45, 13],
+            label: 'Confirmed',
+            backgroundColor: '#f59e0b',
+            borderColor: '#f59e0b',
+            data: this.data,
             fill: false,
             barThickness: 8,
           },
           {
-            label: new Date().getFullYear() - 1,
+            label: 'Deaths',
+            backgroundColor: '#d55',
+            borderColor: '#d55',
+            data: this.data2,
             fill: false,
-            backgroundColor: '#4c51bf',
-            borderColor: '#4c51bf',
-            data: [27, 68, 86, 74, 10, 4, 87],
+            barThickness: 8,
+          },
+          {
+            label: 'Recovered',
+            backgroundColor: '#0a8',
+            borderColor: '#0a8',
+            data: this.data3,
+            fill: false,
             barThickness: 8,
           },
         ],
